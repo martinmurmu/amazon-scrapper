@@ -1,0 +1,73 @@
+#refinements h2 {
+color: #C60;
+font-size: 100%;
+margin: 0;
+padding: 0 0 2px 0;
+}
+
+#refinements li a:hover {
+background-color: #f6f6df;
+color: #C60;
+display: block;
+}
+
+#refinements li a {
+display: block;
+padding-left: 10px;
+text-indent: -10px;
+}
+
+#refinements ul, #refinements li {
+list-style-position: outside;
+list-style-type: none;
+}
+
+#refinements ul {
+font-size: 95%;
+margin: 0 0 6px 0;
+padding: 0 0 6px 20px;
+}
+
+#refinements li {
+padding-bottom: 4px;
+text-indent: -10px;
+}
+
+#refinements li a:visited {
+color: #004b91;
+}
+
+#refinements li a {
+display: block;
+padding-left: 10px;
+text-indent: -10px;
+text-decoration: none;
+}
+
+#refinements li a .narrowValue {
+color: #888;
+}
+
+#refinements li a .narrowValue {
+font-size: 90%;
+}
+
+#refinements li a {
+display: block;
+padding-left: 10px;
+text-indent: -10px;
+}
+
+#refinements ul.imageRfnmt li {text-indent: 0;}
+
+.srSprite{background: url(http://g-ecx.images-amazon.com/images/G/01/nav2/images/gui/searchSprite._V373508385_.gif);}
+.sprPrime{background-position:-50px -40px;height:12px;width:45px;display:inline-block;}
+.sprAddOn{background-position:0 -350px;height:16px;width:72px;display:inline-block;}
+.sprAutoRip{background-position:-100px -430px;display:inline-block;height:11px;width:57px;position:relative;top:3px}
+
+
+div.colorsprite, div.buttonsprite-88 {float: left;margin: 0 2px 4px 0;}
+div.colorsprite div{height:21px;width:24px}
+div.colorsprite div{background-image:url('http://g-ecx.images-amazon.com/images/G/01/nav2/images/gui/clothingcolorsprite._V386801836_.png');}
+
+.clear {clear:both;}

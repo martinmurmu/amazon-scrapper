@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %title AmaSpy 1.0 &ndash; Login Here
+    :css
+      fieldset { width: 20em; }
+      fieldset * { width: 100%; }
+  %body
+    %h1 Login Here
+    %form(action="/login" method="post")
+      %label(for="username")Username:
+      %input#username(type="text" name="username" autofocus)
+      %label(for="password")Password:
+      %input#password(type="password" name="password")
+      %input(type="submit" value="Login")

@@ -1,0 +1,113 @@
+!!!
+%html
+  %head
+    %title AmaSPY 1.0 &ndash; No.1 Amazon Product Digger
+    %script{src: 'jquery.js'}
+    %script{src: 'base64.js'}
+    %script{src: 'datatables.js'}
+    %script{src: 'colresize.js'}
+    %script{src: 'cookie.js'}
+    %script{src: 'main.js'}
+    %link{rel: 'stylesheet', href: 'css/jquery.dataTables.css'}
+    %link{rel: 'stylesheet', href: 'main.css'}
+    %link{rel: 'stylesheet', href: 'colors.css'}
+    %link{rel: 'stylesheet', href: 'amazon.css'}
+  %body
+    %ul#admin
+      %li
+        %a#changekey{href: '/aff', target: 'settings'} AFFILIATE KEY
+      %li
+        %a#folder{href: '/folder', target: 'settings'} DOWNLOAD FOLDER
+      %li
+        %a#logout{href: '/logout'} LOGOUT
+      %li
+        %a#bye{href: '/bye'} QUIT
+    %form#search{action: '/'}
+      #c0
+        %fieldset#logoblock
+          %legend Amazon
+          %img#logo{src: 'logo.png'}
+      #domainblock
+        %fieldset
+          %legend Select Domain
+          %select#domain{name: 'domain'}
+            - @domains.each do |domain|
+              %option{value: domain}= 'Amazon.' + domain
+        %fieldset
+          %legend Select category
+          %select#category{name: 'category'}
+      #c2
+        %fieldset#keywordbox
+          %legend Keywords
+          %input#keyword{placeholder: 'keywords', autofocus: true, name: 'keyword', size: 20}
+        %fieldset#highlow
+          %legend Prices
+          %input#low{placeholder: 'low', name: 'low', type: 'number', min: 0}
+          %span -
+          %input#high{placeholder: 'high', name: 'high', type: 'number', min: 0}
+      #c3
+        %fieldset#pageofpages
+          %legend Pages to download
+          %input#page{name: 'page', type: 'hidden'}
+          %select#pages{name: 'pages'}
+            - [1,2,3,4,5,10,20,50,75,100,150,200,250,500].each do |i|
+              %option{value: i, selected: i == 100}= (i >= 400 ? 'All pages' : '%d pages' % i)
+        %fieldset#offpercent
+          %legend Discount
+          %input#off{placeholder: 'discount', name: 'off', type: 'number', min: 0, max: 100, value: ''}
+          %span % off
+      #c5
+        %fieldset.buttonbox#submitandspin
+          %legend Search
+          %a#submit.bigbutton{href: '#'} Search
+      #c6
+        %fieldset.buttonbox#csvbox
+          %legend Download
+          %a#csv.bigbutton{href: '#'}~ "Export<br>CSV"
+    %form#realform.hidden
+      %input#url{name: 'url', type: 'hidden'}
+    #status
+      %p#mainstatus
+        %a#message(target="amazon")
+        %a#cancel.hidden (cancel)
+      %p#pagestats.hiddenchildren
+        %strong Downloaded:
+        %abbr#downloadedpages(title="Downloaded pages.")
+        %span.slash /
+        %abbr#requestedpages(title="Number of pages to be requested.")
+        %span.slash /
+        %abbr#availablepages(title="Available result pages on Amazon.")
+        %span.slash pages.
+      %p#resultstats.hiddenchildren
+        %strong Displaying:
+        %span#displayedresults
+          %abbr#firstdisplayed(title="The first result displayed on the current page.")
+          %span.slash -
+          %abbr#lastdisplayed(title="The last result dispalyed on the current page.")
+        %span.slash /
+        %abbr#filteredresults(title="The number of results matching your filter.")
+        %span.slash /
+        %abbr#downloadedresults(title="Number of results downloaded from Amazon.")
+        %span.slash /
+        %abbr#totalresults(title="Number of results on Amazon.")
+        %span.slash results.
+    #content
+      %table#refine
+        %thead
+          %tr
+            %th Refinements
+        %tbody
+          %tr
+            %td
+              #sortBy &nbsp;
+          %tr
+            %td
+              #refinementswrapper &nbsp;
+      %table#breadcrumbstable.right
+        %thead
+          %tr
+            %th &nbsp;
+        %tbody
+          %td
+            #breadcrumbs &nbsp;
+      %table.right#results

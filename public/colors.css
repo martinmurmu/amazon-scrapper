@@ -1,0 +1,11 @@
+body { background-color: #778; }
+#search { background: #8295CC; }
+
+thead { background: lightblue; color: navy; }
+
+#refine tbody { background: white; }
+
+.bigbutton { color:#394F91; text-shadow: 0px 1px 0px #C8D0E7; }
+
+#status{ background: lightgray; border: 2px solid #444; border-width: 2px 0; }
+

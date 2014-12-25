@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %title Set Affiliate Key
+    :css
+      fieldset { width: 20em; }
+      fieldset * { width: 100%; }
+  %body
+    %h1 Set Your Affiliate Key
+    %form#pw{action: '/aff', method: 'post'}
+      %fieldset
+        %legend Affiliate Key
+        %input#aff{placeholder: 'affiliate key', value: @affiliate, name: 'aff', size: 30, autofocus: true}
+      %fieldset
+        %legend Change Affiliate Details
+        %button#submit{type: 'submit'} Change

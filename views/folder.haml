@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %title Set Download Folder
+    :css
+      fieldset { width: 30em; }
+      fieldset * { width: 100%; }
+  %body
+    %h1 Set Your Download Folder
+    %form#pw{action: '/folder', method: 'post'}
+      %fieldset
+        %legend Specify your download folder
+        %input#aff{placeholder: 'C:\Users\John Smith\Downloads\AmaSpy Exports', value: @folder, name: 'folder', size: 60, autofocus: true}
+        %p Leave it empty to download through the browser. (It doesn't work on Internet Explorer, and it might give unexpected results on Firefox.)
+        %button#submit{type: 'submit'} Set Folder
